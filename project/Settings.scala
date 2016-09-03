@@ -10,7 +10,7 @@ object Settings extends Dependencies {
 
     scalacOptions ++= Seq(
       "-target:jvm-1.7",
-      "-encoding", "UT8-8",
+      "-encoding", "UTF-8",
       "-unchecked",
       "-deprecation",
       "-feature",
