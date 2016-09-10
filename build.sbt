@@ -5,3 +5,5 @@ lazy val actorStreaming = project
   .settings(Settings.moduleSettings:_*)
   .settings(Assembly.settings:_*)
   .settings(Deploy.settings:_*)
+
+resolvers += "Cloudera's CDH5 Maven repo" at "https://repository.cloudera.com/artifactory/cloudera-repos/"

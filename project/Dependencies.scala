@@ -6,11 +6,10 @@ object Version {
   final val ScalaTest = "2.2.6"
   final val Akka      = "2.2.3-shaded-protobuf"
   final val AkkaOrg   = "org.spark-project.akka"
-  final val Spark     = "1.5.0"
+  final val Spark     = "1.5.0-cdh5.5.2"
   final val SparkTesting = Spark + "_0.3.3"
-  final val Hadoop    = "2.6.0"
+  final val Hadoop    = "2.6.0-cdh5.5.2"
   final val TypesafeConfig = "1.2.1"
-  final val Netty     = "4.0.29.Final"
   final val Logback   = "1.1.7"
   final val Slf4J     = "1.7.21"
 }
@@ -29,7 +28,7 @@ object Library {
   val sparkStreaming    =     "org.apache.spark" %% "spark-streaming" % Version.Spark
   val sparkSql          =     "org.apache.spark" %% "spark-sql" % Version.Spark
   val sparkHive         =     "org.apache.spark" %% "spark-hive" % Version.Spark
-  val sparkTesting      =     "com.holdenkarau" %% "spark-testing-base" % Version.SparkTesting
+  val sparkTesting      =     "com.holdenkarau" %% "spark-testing-base" % "1.5.0_0.3.3"//Version.SparkTesting
 
   val hadoopYarnAPI     =     "org.apache.hadoop" % "hadoop-yarn-api" % Version.Hadoop
   val hadoopYarnClient  =     "org.apache.hadoop" % "hadoop-yarn-client" % Version.Hadoop
@@ -42,8 +41,6 @@ object Library {
   val logback           =     "ch.qos.logback" % "logback-classic" % Version.Logback
 
   val typesafeConfig    =     "com.typesafe" % "config" % Version.TypesafeConfig
-  val netty             =     "io.netty" % "netty-all" % Version.Netty
-
 
 }
 
@@ -53,8 +50,7 @@ object Resolvers {
     Resolver sonatypeRepo "public",
     Resolver typesafeRepo "releases",
     Resolver bintrayRepo("hseeberger", "maven"),
-    Resolver bintrayRepo("lonelyplanet", "maven")
-  )
+    Resolver bintrayRepo("lonelyplanet", "maven"))
 }
 
 trait Dependencies {
@@ -64,11 +60,11 @@ trait Dependencies {
   val commonResolvers = Resolvers.resolvers
 
   val providedDeps = Seq(
-    akkaActor, akkaSlf4j, akkaRemote, sparkCore, sparkStreaming, sparkSql, sparkHive,
+    akkaActor, akkaSlf4j, akkaRemote, typesafeConfig, sparkCore, sparkStreaming, sparkSql, sparkHive,
     hadoopClient, hadoopYarnAPI, hadoopYarnClient, hadoopYarnCommon, hadoopYarnApps, hadoopYarnServer
   )
 
-  val otherDeps = Seq(typesafeConfig, netty)
+  val otherDeps = Seq()
 
   val testDeps = Seq(scalaTest, scalactic, sparkTesting)
 }

@@ -29,6 +29,7 @@ object Settings extends Dependencies {
 
     resolvers ++= commonResolvers,
 
+
     libraryDependencies ++= providedDeps map (_ % "provided"),
     libraryDependencies ++= otherDeps,
     libraryDependencies ++= testDeps map (_ % "test"),
