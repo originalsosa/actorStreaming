@@ -12,6 +12,7 @@ object Version {
   final val TypesafeConfig = "1.2.1"
   final val Logback   = "1.1.7"
   final val Slf4J     = "1.7.21"
+  final val Aws4s     = "1.0.11"
 }
 
 object Library {
@@ -42,6 +43,7 @@ object Library {
 
   val typesafeConfig    =     "com.typesafe" % "config" % Version.TypesafeConfig
 
+  val aws4s             =     "org.sisioh" %% "aws4s" % Version.Aws4s
 }
 
 object Resolvers {
@@ -64,7 +66,7 @@ trait Dependencies {
     hadoopClient, hadoopYarnAPI, hadoopYarnClient, hadoopYarnCommon, hadoopYarnApps, hadoopYarnServer
   )
 
-  val otherDeps = Seq()
+  val otherDeps = Seq(aws4s)
 
   val testDeps = Seq(scalaTest, scalactic, sparkTesting)
 }
